@@ -20,9 +20,20 @@ function Stamp() {
         <span className="size-6 bg-[#353941] rounded-full absolute left-1/2 -translate-x-1/2 -bottom-3"></span>
         <div className="h-full grid grid-cols-5 justify-items-center items-center">
           {[...Array(10)].map((_, i) => (
-            <div className="size-16 aspect-square rounded-full bg-orange-200 flex flex-col items-center justify-center">
-              <span>{i + 1}</span>
-              <span className="uppercase">SEPT</span>
+            <div
+              key={i}
+              className="size-16 aspect-square rounded-full bg-orange-200 flex flex-col items-center justify-center"
+            >
+              {i == 9 ? (
+                <>
+                  <GiftIcon sizes={40} />
+                </>
+              ) : (
+                <>
+                  <span>{i + 1}</span>
+                  <span>SEPT</span>
+                </>
+              )}
             </div>
           ))}
         </div>
@@ -50,7 +61,7 @@ function Stamp() {
           </div>
         </div>
 
-        <div className="border-t-2 border-dashed border-carbon/30 p-3">
+        <div className="border-t-2 border-dashed border-carbon/30 p-3 bg-orange-600">
           <h1 className="text-white flex items-center gap-1">
             <span>
               <GiftIcon sizes={25} />

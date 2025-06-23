@@ -23,8 +23,8 @@ function Profile() {
               <UserIcon sizes={30} />
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold">Nombre</span>
-              <span className="text-xl font-medium">Carlos Osorio</span>
+              <span className="font-semibold text-sm">Nombre</span>
+              <span className="font-medium font-IBM">Carlos Osorio</span>
             </div>
           </div>
           <div className="flex items-center gap-4">
@@ -32,8 +32,8 @@ function Profile() {
               <MailIcon sizes={30} />
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold">Correo</span>
-              <span className="text-xl font-medium">
+              <span className="font-semibold text-sm">Correo</span>
+              <span className="font-medium font-IBM">
                 osoriocardona0000@gmail.com
               </span>
             </div>
@@ -43,8 +43,8 @@ function Profile() {
               <PhoneIcon sizes={30} />
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold">Telefono</span>
-              <span className="text-xl font-medium">3206852825</span>
+              <span className="font-semibold text-sm">Telefono</span>
+              <span className="font-medium font-IBM">3206852825</span>
             </div>
           </div>
         </div>
