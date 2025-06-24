@@ -8,7 +8,7 @@ function Home() {
     <div className="font-Rubik">
       <Header />
       <section className="px-5 flex flex-col py-6 gap-4 text-carbon">
-        <h1 className="text-2xl text-white">Ingresa</h1>
+        <h1 className="text-2xl text-white">Tengo Cuenta</h1>
 
         <Link
           to={"/login"}
@@ -20,7 +20,7 @@ function Home() {
             </span>
           </div>
           <div className="grow">
-            <h1 className="text-xl font-medium">Tengo Cuenta</h1>
+            <h1 className="text-xl font-medium">Ingresar</h1>
             <p>Iniciar sesion</p>
           </div>
           <span className="rounded-full bg-carbon/10 aspect-square p-3">
@@ -34,7 +34,7 @@ function Home() {
           <span className="border grow"></span>
         </div>
 
-        <h1 className="text-2xl text-white"> Selecciona tu rol</h1>
+        <h1 className="text-2xl text-white">Selecciona tu rol</h1>
 
         <Link
           to={"/client"}

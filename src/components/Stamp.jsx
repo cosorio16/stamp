@@ -3,7 +3,7 @@ import LocationIcon from "../icons/LocationIcon";
 import GiftIcon from "../icons/GiftIcon";
 import CalendarIcon from "../icons/CalendarIcon";
 
-function Stamp() {
+function Stamp({ name, date, gift, color, bgColor, icon, dates, checks }) {
   const [flip, setFlip] = useState(false);
 
   return (
@@ -22,12 +22,14 @@ function Stamp() {
           {[...Array(10)].map((_, i) => (
             <div
               key={i}
-              className="size-16 aspect-square rounded-full bg-orange-200 flex flex-col items-center justify-center"
+              className={`size-16 aspect-square rounded-full flex bg-orange-200 flex-col items-center justify-center ${
+                i % 2 ? "" : "stamped"
+              } ${i == 9 && "stampy"} `}
             >
               {i == 9 ? (
-                <>
+                <span>
                   <GiftIcon sizes={40} />
-                </>
+                </span>
               ) : (
                 <>
                   <span>{i + 1}</span>
