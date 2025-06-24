@@ -23,7 +23,7 @@ function Stamp({ name, date, gift, color, bgColor, icon, dates, checks }) {
             <div
               key={i}
               className={`size-16 aspect-square rounded-full flex bg-orange-200 flex-col items-center justify-center ${
-                i % 2 ? "" : "stamped"
+                i % 2 ? "stampy" : "stamped"
               } ${i == 9 && "stampy"} `}
             >
               {i == 9 ? (
