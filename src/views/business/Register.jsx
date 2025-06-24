@@ -1,6 +1,7 @@
 import { use, useState } from "react";
 import Header from "../../components/Header";
 import TicketIcon from "../../icons/TicketIcon";
+import { Link } from "react-router";
 
 function Register() {
   const [businessName, setBusinessName] = useState("");
@@ -92,9 +93,9 @@ function Register() {
             </div>
           </div>
 
-          <button className="bg-cosmic text-white self-center w-fit px-10 py-2.5 font-Rubik text-xl rounded active:scale-90 transition">
+          <Link to={'/scan'} className="bg-cosmic text-white self-center w-fit px-10 py-2.5 font-Rubik text-xl rounded active:scale-90 transition">
             Crear Estampa
-          </button>
+          </Link>
         </form>
       </section>
     </>
