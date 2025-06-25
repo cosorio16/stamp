@@ -7,6 +7,7 @@ import Register from "./views/business/Register";
 import Panel from "./views/business/Panel";
 import ScanQR from './views/business/ScanQR'
 import Business from "./views/business/Business";
+import Users from "./views/business/Users";
 
 function App() {
   return (
@@ -16,9 +17,12 @@ function App() {
         <Route path="/client" element={<Client />} />
         <Route path="/stamps" element={<Stamps />} />
         <Route path="/profile" element={<Profile />} />
+
         <Route path="/register" element={<Register />} />
-        <Route path="/panel" element={<Panel />} />
+
         <Route path="/scan" element={<ScanQR />} />
+        <Route path="/panel" element={<Panel />} />
+        <Route path="/users" element={<Users />} />
         <Route path="/business" element={<Business />} />
       </Routes>
     </BrowserRouter>

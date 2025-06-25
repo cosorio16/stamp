@@ -3,7 +3,7 @@ import MenuButton from "./MenuButton";
 
 function Header() {
   return (
-    <header className="h-20 relative flex items-center justify-between px-5 w-full text-white font-Rubik border-b border-white/10">
+    <header className="h-20 relative flex items-center justify-between px-3 w-full text-white font-Rubik border-b border-white/10">
       <div className="flex items-center gap-2 ">
         <Link to={"/"} className="font-bold text-3xl relative">
           Zellito

@@ -7,25 +7,25 @@ function Home() {
   return (
     <div className="font-Rubik">
       <Header />
-      <section className="px-5 flex flex-col py-6 gap-4 text-carbon">
+      <section className="px-3 flex flex-col py-6 gap-4 text-carbon">
         <h1 className="text-2xl text-white">Tengo Cuenta</h1>
 
         <Link
-          to={"/login"}
-          className="h-22 flex items-center gap-3 pr-2 bg-white"
+          to={"/"}
+          className="h-22 flex items-center bg-white/20 text-white"
         >
-          <div className="p-3 bg-cosmic text-white aspect-square flex items-center justify-center h-22">
+          <div className="p-3 bg-cosmic border border-cosmic text-white aspect-square flex items-center justify-center h-22">
             <span className="">
               <QrIcon sizes={40} />
             </span>
           </div>
-          <div className="grow">
+          <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
             <h1 className="text-xl font-medium">Ingresar</h1>
             <p>Iniciar sesion</p>
           </div>
-          <span className="rounded-full bg-carbon/10 aspect-square p-3">
+          {/* <span className="rounded-full bg-carbon/10 aspect-square p-3">
             <Arrow sizes={25} />
-          </span>
+          </span> */}
         </Link>
 
         <div className="flex items-center text-white/90">
@@ -38,38 +38,38 @@ function Home() {
 
         <Link
           to={"/client"}
-          className="h-22 flex items-center gap-3 pr-2 bg-white"
+          className="h-22 flex items-center bg-white/20 text-white"
         >
-          <div className="p-3 bg-cosmic text-white aspect-square flex items-center justify-center h-22">
+          <div className="p-3 bg-cosmic border border-cosmic text-white aspect-square flex items-center justify-center h-22">
             <span className="">
               <QrIcon sizes={40} />
             </span>
           </div>
-          <div className="grow">
+          <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
             <h1 className="text-xl font-medium">Soy Cliente</h1>
             <p>Genera tu QR gratis</p>
           </div>
-          <span className="rounded-full bg-carbon/10 aspect-square p-3">
+          {/* <span className="rounded-full bg-carbon/10 aspect-square p-3">
             <Arrow sizes={25} />
-          </span>
+          </span> */}
         </Link>
 
         <Link
           to={"/register"}
-          className="h-22 flex items-center gap-3 pr-2 bg-white"
+          className="h-22 flex items-center bg-white/20 text-white"
         >
-          <div className="p-3 bg-cosmic text-white aspect-square flex items-center justify-center h-22">
+          <div className="p-3 bg-cosmic border border-cosmic text-white aspect-square flex items-center justify-center h-22">
             <span className="">
               <QrIcon sizes={40} />
             </span>
           </div>
-          <div className="grow">
+          <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
             <h1 className="text-xl font-medium">Soy Dueño</h1>
             <p>Registrate en segundos</p>
           </div>
-          <span className="rounded-full bg-carbon/10 aspect-square p-3">
+          {/* <span className="rounded-full bg-carbon/10 aspect-square p-3">
             <Arrow sizes={25} />
-          </span>
+          </span> */}
         </Link>
       </section>
     </div>

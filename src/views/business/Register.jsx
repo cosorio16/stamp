@@ -25,7 +25,7 @@ function Register() {
   return (
     <>
       <Header />
-      <section className="px-5 flex flex-col gap-5 font-Rubik py-5">
+      <section className="px-3 flex flex-col gap-5 font-Rubik py-5">
         <h1 className="text-white text-2xl flex items-center gap-1">
           <span>
             <TicketIcon sizes={30} />

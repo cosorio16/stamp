@@ -22,18 +22,24 @@ function Stamp({ name, date, gift, color, bgColor, icon, dates, checks }) {
           {[...Array(10)].map((_, i) => (
             <div
               key={i}
-              className={`size-16 aspect-square rounded-full flex bg-orange-200 flex-col items-center justify-center ${
-                i % 2 ? "stampy" : "stamped"
+              className={`size-16 aspect-square rounded-full flex  flex-col items-center justify-center text-orange-100 ${
+                i != 0 ? "stampy" : "stamped"
               } ${i == 9 && "stampy"} `}
             >
+              {i == 0 && (
+                <>
+                  <span>24</span>
+                  <span>JUNIO</span>
+                </>
+              )}
+
               {i == 9 ? (
                 <span>
                   <GiftIcon sizes={40} />
                 </span>
               ) : (
                 <>
-                  <span>{i + 1}</span>
-                  <span>SEPT</span>
+                  <span></span>
                 </>
               )}
             </div>
