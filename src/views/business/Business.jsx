@@ -3,6 +3,7 @@ import PanelBottom from "../../components/PanelBottom";
 import UserIcon from '../../icons/UserIcon'
 import MailIcon from '../../icons/MailIcon'
 import PhoneIcon from '../../icons/PhoneIcon'
+import LocationIcon from "../../icons/LocationIcon";
 
 function Business() {
   return (
@@ -23,8 +24,17 @@ function Business() {
               <UserIcon sizes={30} />
             </div>
             <div className="flex flex-col">
-              <span className="font-semibold text-sm">Nombre</span>
-              <span className="font-medium font-IBM">Carlos Osorio</span>
+              <span className="font-semibold text-sm">Nombre del Negocio</span>
+              <span className="font-medium font-IBM">Osorio Frontend</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <div>
+              <LocationIcon sizes={30} />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-semibold text-sm">Direccion</span>
+              <span className="font-medium font-IBM">55 LIBERTY ST</span>
             </div>
           </div>
           <div className="flex items-center gap-4">

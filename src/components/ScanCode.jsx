@@ -49,6 +49,7 @@ const App = () => {
             onScan={handleScan}
             // chooseDeviceId={()=>selected}
             style={{ width: "300px" }}
+            
           />
         </>
       )}

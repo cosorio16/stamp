@@ -20,8 +20,8 @@ function Home() {
             </span>
           </div>
           <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
-            <h1 className="text-xl font-medium">Ingresar</h1>
-            <p>Iniciar sesion</p>
+            <h1 className="text-lg font-medium">Ingresar</h1>
+            <p className="text-sm">Iniciar sesion</p>
           </div>
           {/* <span className="rounded-full bg-carbon/10 aspect-square p-3">
             <Arrow sizes={25} />
@@ -46,8 +46,8 @@ function Home() {
             </span>
           </div>
           <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
-            <h1 className="text-xl font-medium">Soy Cliente</h1>
-            <p>Genera tu QR gratis</p>
+            <h1 className="text-lg font-medium">Soy Cliente</h1>
+            <p className="text-sm">Genera tu QR gratis</p>
           </div>
           {/* <span className="rounded-full bg-carbon/10 aspect-square p-3">
             <Arrow sizes={25} />
@@ -64,8 +64,8 @@ function Home() {
             </span>
           </div>
           <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
-            <h1 className="text-xl font-medium">Soy Dueño</h1>
-            <p>Registrate en segundos</p>
+            <h1 className="text-lg font-medium">Soy Dueño</h1>
+            <p className="text-sm">Registrate en segundos</p>
           </div>
           {/* <span className="rounded-full bg-carbon/10 aspect-square p-3">
             <Arrow sizes={25} />

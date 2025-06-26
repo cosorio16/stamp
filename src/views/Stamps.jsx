@@ -8,8 +8,6 @@ function Stamps() {
       <Header />
       <section className="px-2 py-5 flex items-center justify-center flex-col gap-5 pb-32">
         <Stamp />
-        <Stamp />
-        <Stamp />
       </section>
       <NavBottom />
     </>

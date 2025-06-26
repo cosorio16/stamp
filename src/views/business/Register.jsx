@@ -7,7 +7,7 @@ function Register() {
   const [businessName, setBusinessName] = useState("");
   const [kindOfWork, setKindOfWork] = useState("");
   const [direction, setDirection] = useState("");
-  const [steps, setSteps] = useState(0);
+  const [steps, setSteps] = useState(2);
   const [color, setColor] = useState("");
   const [colorSelected, setColorSelected] = useState(0);
 
