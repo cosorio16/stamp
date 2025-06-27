@@ -9,12 +9,12 @@ function Panel() {
     <>
       <Header />
       <section className="px-2 py-3 flex flex-col pb-20 items-center gap-5">
-        <Link
+        {/* <Link
           to={"/register"}
           className="ring-2 p-2 aspect-square rounded-full text-white/50 size-12 flex items-center justify-center"
         >
           <PlusIcon sizes={30} />
-        </Link>
+        </Link> */}
         <Stamp />
       </section>
       <PanelBottom />

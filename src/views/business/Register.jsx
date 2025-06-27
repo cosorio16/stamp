@@ -85,7 +85,7 @@ function Register() {
                   style={{ backgroundColor: c }}
                   className={`size-8 rounded-full ${
                     i == colorSelected
-                      ? "ring-cosmic scale-105"
+                      ? "ring-white scale-105"
                       : "ring-transparent"
                   } ring-2 transition`}
                 ></span>

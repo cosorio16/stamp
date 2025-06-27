@@ -5,7 +5,7 @@ import Stamps from "./views/Stamps";
 import Profile from "./views/Profile";
 import Register from "./views/business/Register";
 import Panel from "./views/business/Panel";
-import ScanQR from './views/business/ScanQR'
+import Scan from './views/business/Scan'
 import Business from "./views/business/Business";
 import Users from "./views/business/Users";
 
@@ -20,7 +20,7 @@ function App() {
 
         <Route path="/register" element={<Register />} />
 
-        <Route path="/scan" element={<ScanQR />} />
+        <Route path="/scan" element={<Scan />} />
         <Route path="/panel" element={<Panel />} />
         <Route path="/users" element={<Users />} />
         <Route path="/business" element={<Business />} />

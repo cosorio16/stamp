@@ -7,7 +7,7 @@ import PinCodeIcon from "../../icons/PinCodeIcon";
 import ScanIcon from "../../icons/ScanIcon";
 import CloseIcon from "../../icons/CloseIcon";
 
-function ScanQR() {
+function Scan() {
   const [pinCode, setPinCode] = useState(Array(8).fill(""));
   const [startScan, setStartScan] = useState(false);
   const [pinModal, setPinModal] = useState(false);
@@ -62,7 +62,7 @@ function ScanQR() {
       <Header />
 
       <section className="px-3 py-3 flex flex-col font-Rubik">
-        <div className="flex items-center flex-col gap-5">
+        <div className="flex items-center flex-col gap-5 border-b ">
           <div
             onClick={() => setStartScan(true)}
             className="w-full border border-white/20 flex items-center  rounded-r text-white text-xl font-medium gap-3"
@@ -175,10 +175,11 @@ function ScanQR() {
             </div>
           </div>
         </div>
+
       </section>
       <PanelBottom />
     </>
   );
 }
 
-export default ScanQR;
+export default Scan;
