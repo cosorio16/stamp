@@ -2,6 +2,8 @@ import { Link } from "react-router";
 import Header from "../components/Header";
 import Arrow from "../icons/Arrow";
 import QrIcon from "../icons/QrIcon";
+import UserIcon from "../icons/UserIcon";
+import ScanIcon from "../icons/ScanIcon";
 
 function Home() {
   return (
@@ -16,7 +18,7 @@ function Home() {
         >
           <div className="p-3 bg-cosmic border border-cosmic text-white aspect-square flex items-center justify-center h-22">
             <span className="">
-              <QrIcon sizes={40} />
+              <UserIcon sizes={40} />
             </span>
           </div>
           <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
@@ -60,7 +62,7 @@ function Home() {
         >
           <div className="p-3 bg-cosmic border border-cosmic text-white aspect-square flex items-center justify-center h-22">
             <span className="">
-              <QrIcon sizes={40} />
+              <ScanIcon sizes={40} />
             </span>
           </div>
           <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">

@@ -1,5 +1,4 @@
 import { Link } from "react-router";
-import MenuButton from "./MenuButton";
 
 function Header() {
   return (
@@ -12,7 +11,6 @@ function Header() {
           </span>
         </Link>
       </div>
-      <MenuButton />
     </header>
   );
 }

@@ -35,13 +35,13 @@ function Register() {
 
         <form action="" className="flex flex-col w-full gap-2.5">
           <input
-            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2 px-5 rounded transition capitalize"
+            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition capitalize"
             type="text"
             placeholder="Nombre del Negocio"
           />
 
           <select
-            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2 px-5 rounded transition"
+            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition"
             name=""
             id=""
           >
@@ -49,11 +49,11 @@ function Register() {
           </select>
 
           <input
-            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2 px-5 rounded transition"
+            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition"
             type="text"
             placeholder="Direccion"
           />
-          <div className="flex border flex-col py-2 px-5  border-white/30 rounded transition text-white/80 ring ring-transparent focus-within:ring-frost">
+          <div className="flex border flex-col py-2.5 px-5  border-white/30 rounded transition text-white/80 ring ring-transparent focus-within:ring-frost">
             <span>Cantidad de pasos: {steps}</span>
             <input
               className=" focus:outline-none text-white placeholder:text-white/80"
@@ -70,20 +70,20 @@ function Register() {
             <div></div>
           </div>
           <input
-            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2 px-5 rounded transition"
+            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition"
             type="text"
             placeholder="Recompensa"
           />
 
-          <div className="flex border flex-col py-2 px-5 gap-1 border-white/30 rounded transition text-white/80 ring ring-transparent focus-within:ring-frost">
+          <div className="flex border flex-col py-2.5 px-5 gap-2 border-white/30 rounded transition text-white/80 ring ring-transparent focus-within:ring-frost">
             <span>Seleccione un Color</span>
-            <div className="grid grid-cols-4 gap-6 justify-items-center items-center">
+            <div className="grid grid-cols-8 gap-2 justify-items-center items-center">
               {colors.map((c, i) => (
                 <span
                   key={i}
                   onClick={() => setColorSelected(i)}
                   style={{ backgroundColor: c }}
-                  className={`size-12 rounded-full ${
+                  className={`size-8 rounded-full ${
                     i == colorSelected
                       ? "ring-cosmic scale-105"
                       : "ring-transparent"

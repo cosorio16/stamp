@@ -48,6 +48,14 @@ function Profile() {
             </div>
           </div>
         </div>
+        <div className="grid grid-cols-2 gap-5 px-2">
+          <button className="text-white ring-2 ring-white/60 rounded py-3 font-medium active:scale-90 transition">
+            Eliminar Cuenta
+          </button>
+          <button className="text-white ring-2 ring-white/60 rounded py-3 font-medium active:scale-90 transition">
+            Cerrar Sesion
+          </button>
+        </div>
       </div>
 
       <NavBottom />

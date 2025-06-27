@@ -9,7 +9,7 @@ function Business() {
   return (
     <>
       <Header />
-      <div className="flex flex-col justify-center gap-10 py-5">
+      <div className="flex flex-col justify-center gap-10 py-5 pb-32">
         <div className="flex items-center w-full flex-col">
           <span className="rounded-full p-4 bg-white flex items-center justify-center text-carbon/80">
             <UserIcon sizes={40} />
@@ -59,8 +59,14 @@ function Business() {
           </div>
         </div>
 
-        <button>Eliminar Cuenta</button>
-        <button>Cerrar Sesion</button>
+        <div className="grid grid-cols-2 gap-5 px-2">
+          <button className="text-white ring-2 ring-white/60 rounded py-3 font-medium active:scale-90 transition">
+            Eliminar Cuenta
+          </button>
+          <button className="text-white ring-2 ring-white/60 rounded py-3 font-medium active:scale-90 transition">
+            Cerrar Sesion
+          </button>
+        </div>
       </div>
       <PanelBottom />
     </>
