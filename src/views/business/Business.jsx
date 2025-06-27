@@ -1,8 +1,8 @@
 import Header from "../../components/Header";
 import PanelBottom from "../../components/PanelBottom";
-import UserIcon from '../../icons/UserIcon'
-import MailIcon from '../../icons/MailIcon'
-import PhoneIcon from '../../icons/PhoneIcon'
+import UserIcon from "../../icons/UserIcon";
+import MailIcon from "../../icons/MailIcon";
+import PhoneIcon from "../../icons/PhoneIcon";
 import LocationIcon from "../../icons/LocationIcon";
 
 function Business() {
@@ -58,6 +58,9 @@ function Business() {
             </div>
           </div>
         </div>
+
+        <button>Eliminar Cuenta</button>
+        <button>Cerrar Sesion</button>
       </div>
       <PanelBottom />
     </>

@@ -31,11 +31,30 @@ function ScanQR() {
   };
 
   const handleChange = (e, index) => {
-    const newValues = [...pinCode];
-    newValues[index] = e.target.value;
-    setPinCode(newValues);
+    const key = e.key;
+    console.log(key);
 
-    index < 7 && e.target.value && inputRefs.current[index + 1].focus();
+    if (key == key.match(/[a-z]/i) || (key >= "0" && key <= "9")) {
+      const newValues = [...pinCode];
+      newValues[index] = key;
+      setPinCode(newValues);
+      index < 7 && e.key && inputRefs.current[index + 1].focus();
+    } else if (key == "Backspace") {
+      const newValues = [...pinCode];
+
+      if (newValues[index] == "") {
+        newValues[index - 1] = "";
+        setPinCode(newValues);
+        index > 0 && e.key && inputRefs.current[index - 1].focus();
+      } else {
+        newValues[index] = "";
+        setPinCode(newValues);
+        index > 0 && e.key && inputRefs.current[index].focus();
+      }
+
+    } else {
+      e.preventDefault();
+    }
   };
 
   return (
@@ -55,20 +74,20 @@ function ScanQR() {
           </div>
 
           <div
-            className={`fixed inset-0 bg-carbon/90 z-30 flex flex-col gap-5 transition ${
+            className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-[#353941] z-30 flex flex-col gap-5 transition ${
               startScan ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
             <button
               onClick={() => setStartScan(false)}
-              className={`ring-2 p-2 aspect-square rounded-full text-white/50 size-12 flex items-center justify-center self-end mr-5 mt-5 ${
+              className={`ring-2 p-2 aspect-square rounded-full text-white/90 size-12 flex items-center justify-center self-end mr-5 mt-5 ${
                 startScan ? "scale-100" : "scale-0"
               } transition`}
             >
               <CloseIcon sizes={30} />
             </button>
             <div
-              className={`flex flex-col gap-3 items-center justify-center h-full bg-cosmic rounded-t-2xl ${
+              className={`flex flex-col gap-3 items-center justify-center h-full bg-cosmic md:p-5 rounded-t-2xl ${
                 startScan ? "translate-y-0" : "translate-y-full"
               } transition`}
             >
@@ -106,38 +125,39 @@ function ScanQR() {
           </div>
 
           <div
-            className={`fixed inset-0 bg-carbon/90 z-30 flex flex-col gap-5 transition ${
+            className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-[#353941] z-30 flex flex-col gap-5 transition ${
               pinModal ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
             <button
               onClick={() => setPinModal(false)}
-              className={`ring-2 p-2 aspect-square rounded-full text-white/50 size-12 flex items-center justify-center self-end mr-5 mt-5 ${
+              className={`ring-2 p-2 aspect-square rounded-full text-white/90 size-12 flex items-center justify-center self-end mr-5 mt-5 ${
                 pinModal ? "scale-100" : "scale-0"
               } transition`}
             >
               <CloseIcon sizes={30} />
             </button>
             <div
-              className={`flex flex-col gap-3 items-center justify-center h-full bg-cosmic rounded-t-2xl ${
+              className={`flex flex-col gap-3 items-center justify-center h-full bg-cosmic md:p-5 rounded-t-2xl ${
                 pinModal ? "translate-y-0" : "translate-y-full"
               } transition`}
             >
               <h1 className="text-3xl text-white uppercase font-semibold">
                 Ingresar Pin
               </h1>
-              <div className="flex items-center gap-2 p-1 text-white">
+              <div className="grid grid-cols-9 gap-1 p-1 text-white">
                 {[...Array(8)].map((_, i) => (
                   <React.Fragment key={i}>
                     <input
                       ref={(el) => (inputRefs.current[i] = el)}
                       type="text"
                       value={pinCode[i]}
-                      className="border-2 rounded border-white w-8 aspect-square text-center  focus:outline-none p-1"
-                      onChange={(e) => handleChange(e, i)}
+                      className="border-2 rounded border-white/60 w-full justify-items-center items-center aspect-square text-center focus:outline-none p-1 focus:border-white uppercase font-IBM font-medium transition"
+                      onKeyDown={(e) => handleChange(e, i)}
                       maxLength={1}
+                      // onKeyDown={(e) => handleDelete(e, i)}s
                     />
-                    {i == 3 && <span className="text-4xl ">-</span>}
+                    {i == 3 && <span className="text-4xl text-center">-</span>}
                   </React.Fragment>
                 ))}
               </div>

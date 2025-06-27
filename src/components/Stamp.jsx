@@ -8,7 +8,7 @@ function Stamp({ name, date, gift, color, bgColor, icon, dates, checks }) {
 
   return (
     <div
-      className={`w-full max-w-96 relative h-48 font-Rubik ${
+      className={`w-full max-w-md relative h-48 font-Rubik ${
         flip ? "rotate-x-180" : "rotate-x-0"
       } transition-all duration-300 perspective-distant transform-3d`}
     >
