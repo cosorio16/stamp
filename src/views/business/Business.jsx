@@ -11,7 +11,7 @@ function Business() {
       <Header />
       <div className="flex flex-col justify-center gap-6 py-5 pb-32">
         <div className="flex items-center w-full flex-col">
-          <span className="rounded-full p-4 bg-white flex items-center justify-center text-carbon/80">
+          <span className="rounded-full p-4 bg-white flex items-center justify-center text-frost">
             <UserIcon sizes={40} />
           </span>
         </div>
@@ -20,7 +20,7 @@ function Business() {
             Editar
           </button>
           <div className="flex items-center gap-4">
-            <div>
+            <div className="text-frost">
               <UserIcon sizes={30} />
             </div>
             <div className="flex flex-col">
@@ -29,7 +29,7 @@ function Business() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div>
+            <div className="text-frost">
               <LocationIcon sizes={30} />
             </div>
             <div className="flex flex-col">
@@ -38,7 +38,7 @@ function Business() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div>
+            <div className="text-frost">
               <MailIcon sizes={30} />
             </div>
             <div className="flex flex-col">
@@ -49,7 +49,7 @@ function Business() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            <div>
+            <div className="text-frost">
               <PhoneIcon sizes={30} />
             </div>
             <div className="flex flex-col">

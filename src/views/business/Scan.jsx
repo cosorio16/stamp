@@ -123,7 +123,7 @@ function Scan() {
                 pinModal ? "translate-y-0" : "translate-y-full"
               } transition`}
             >
-              <h1 className="text-3xl text-white uppercase font-semibold">
+              <h1 className="text-3xl text-white uppercase font-medium">
                 Ingresar Pin
               </h1>
               <div className="grid grid-cols-9 gap-1 p-1 text-white">
@@ -133,7 +133,7 @@ function Scan() {
                       ref={(el) => (inputRefs.current[i] = el)}
                       type="text"
                       value={pinCode[i]}
-                      className="border-2 rounded border-white/60 w-full justify-items-center items-center aspect-square text-center focus:outline-none p-1 focus:border-white uppercase font-IBM font-medium transition"
+                      className="border-2 rounded border-white/60 w-full justify-items-center items-center aspect-square text-center focus:outline-none p-1 focus:border-white uppercase font-IBM font-bold transition"
                       onKeyDown={(e) => handleChange(e, i)}
                       maxLength={1}
                       // onKeyDown={(e) => handleDelete(e, i)}s

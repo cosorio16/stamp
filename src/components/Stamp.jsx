@@ -2,19 +2,25 @@ import { useState } from "react";
 import LocationIcon from "../icons/LocationIcon";
 import GiftIcon from "../icons/GiftIcon";
 import CalendarIcon from "../icons/CalendarIcon";
+import neumorphism from "../utils/neumorphism";
 
 function Stamp({ name, date, gift, color, bgColor, icon, dates, checks }) {
   const [flip, setFlip] = useState(false);
 
+  const colors = neumorphism.generateNeumorphismColors(`#${bgColor}`);
+
   return (
     <div
-      className={`w-full max-w-md relative h-48 font-Rubik ${
+      className={`w-full max-w-md relative min-h-48 font-Rubik ${
         flip ? "rotate-x-180" : "rotate-x-0"
       } transition-all duration-300 perspective-distant transform-3d`}
     >
       <div
         onClick={() => setFlip(!flip)}
-        className="absolute w-full h-full p-1 flex flex-col justify-between bg-orange-500 rotate-x-180 rounded"
+        style={{
+          background: bgColor,
+        }}
+        className="absolute w-full h-full p-1 flex flex-col justify-between  rotate-x-180 rounded"
       >
         <span className="size-6 bg-[#353941] rounded-full absolute left-1/2 -translate-x-1/2 -top-3"></span>
         <span className="size-6 bg-[#353941] rounded-full absolute left-1/2 -translate-x-1/2 -bottom-3"></span>
@@ -22,17 +28,12 @@ function Stamp({ name, date, gift, color, bgColor, icon, dates, checks }) {
           {[...Array(10)].map((_, i) => (
             <div
               key={i}
-              className={`size-16 aspect-square rounded-full flex  flex-col items-center justify-center text-orange-100 ${
-                i != 0 ? "stampy" : "stamped"
-              } ${i == 9 && "stampy"} `}
+              style={{
+                background: `linear-gradient(145deg, ${colors.thirdGradientColor}, ${colors.secondGradientColor})`,
+                boxShadow: `1.5px 1.5px 0px ${colors.darkColor}, -1.5px -1.5px 0px ${colors.lightColor}`,
+              }}
+              className={`size-16 aspect-square rounded-full flex  flex-col items-center justify-center text-white`}
             >
-              {i == 0 && (
-                <>
-                  <span>24</span>
-                  <span>JUNIO</span>
-                </>
-              )}
-
               {i == 9 ? (
                 <span>
                   <GiftIcon sizes={40} />
@@ -49,7 +50,10 @@ function Stamp({ name, date, gift, color, bgColor, icon, dates, checks }) {
 
       <div
         onClick={() => setFlip(!flip)}
-        className="absolute w-full h-full  flex flex-col justify-between bg-orange-500 backface-hidden rounded"
+        style={{
+          background: bgColor,
+        }}
+        className="absolute w-full h-full flex flex-col justify-between  backface-hidden rounded"
       >
         <span className="size-6 bg-[#353941] rounded-full absolute left-1/2 -translate-x-1/2 -top-3"></span>
         <span className="size-6 bg-[#353941] rounded-full absolute left-1/2 -translate-x-1/2 -bottom-3"></span>
@@ -69,7 +73,13 @@ function Stamp({ name, date, gift, color, bgColor, icon, dates, checks }) {
           </div>
         </div>
 
-        <div className="border-t-2 border-dashed border-carbon/30 p-3 bg-orange-600">
+        <div
+          style={{
+            background: bgColor,
+            borderColor: colors.darkColor,
+          }}
+          className="border-t-2 border-dashed p-3"
+        >
           <h1 className="text-white flex items-center gap-1">
             <span>
               <GiftIcon sizes={25} />

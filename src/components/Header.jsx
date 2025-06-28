@@ -6,7 +6,7 @@ function Header() {
       <div className="flex items-center gap-2 ">
         <Link to={"/"} className="font-bold text-3xl relative">
           Zellito
-          <span className="self-end rounded-full px-4 bg-cosmic text-sm absolute -top-2 -right-1/2">
+          <span className="self-end rounded-full px-4 font-IBM bg-frost text-xs absolute -top-2 -right-1/2">
             beta
           </span>
         </Link>

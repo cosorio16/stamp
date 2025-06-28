@@ -18,7 +18,7 @@ function Panel() {
               <EyeIcon sizes={25} />
             </button>
             <button className="p-2 rounded-full text-white/80">
-              <TrashIcon sizes={25} />
+              <TrashIcon sizes={20} />
             </button>
           </div>
         </div>

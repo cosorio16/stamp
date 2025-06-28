@@ -21,11 +21,22 @@ body {
 }
 
 .stampy {
-  background: linear-gradient(145deg, #ff7000, #e65f00);
+  /* background: linear-gradient(145deg, #ff7000, #e65f00);
+  box-shadow: 1.5px 1.5px 0px #662a00, -1.5px -1.5px 0px #ffa800; */
+
+  background: linear-gradient(145deg, #e65f00, #ff7000);
   box-shadow: 1.5px 1.5px 0px #662a00, -1.5px -1.5px 0px #ffa800;
 }
 
 .stamped {
+  /* background: #ff6900;
+  box-shadow: inset 1.5px 1.5px 0px #662a00, inset -1.5px -1.5px 0px #ffa800; */
+
   background: #ff6900;
   box-shadow: inset 1.5px 1.5px 0px #662a00, inset -1.5px -1.5px 0px #ffa800;
+}
+
+.usersContainer, .stampsContainer {
+  scrollbar-width: none;
+  
 }

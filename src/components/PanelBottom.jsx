@@ -1,8 +1,8 @@
 import { NavLink } from "react-router";
 import ScanIcon from "../icons/ScanIcon";
-import TicketIcon from "../icons/TicketIcon";
 import SettingIcon from "../icons/SettingIcon";
 import ClientsIcon from "../icons/ClientsIcon";
+import DashboardIcon from "../icons/DashboardIcon";
 
 function NavBottom() {
   return (
@@ -26,7 +26,7 @@ function NavBottom() {
           }
           to={"/panel"}
         >
-          <TicketIcon sizes={30} />
+          <DashboardIcon sizes={30} />
         </NavLink>
         <NavLink
           className={({ isActive }) =>
