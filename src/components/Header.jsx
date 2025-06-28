@@ -11,6 +11,7 @@ function Header() {
           </span>
         </Link>
       </div>
+      <span className="font-IBM text-white/50 text-sm">V 1.0.0</span>
     </header>
   );
 }

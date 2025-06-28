@@ -5,6 +5,7 @@ import Header from "../../components/Header";
 import PanelBottom from "../../components/PanelBottom";
 import PinCodeIcon from "../../icons/PinCodeIcon";
 import ScanIcon from "../../icons/ScanIcon";
+import QrIcon from "../../icons/QrIcon";
 import CloseIcon from "../../icons/CloseIcon";
 
 function Scan() {
@@ -51,7 +52,6 @@ function Scan() {
         setPinCode(newValues);
         index > 0 && e.key && inputRefs.current[index].focus();
       }
-
     } else {
       e.preventDefault();
     }
@@ -62,68 +62,49 @@ function Scan() {
       <Header />
 
       <section className="px-3 py-3 flex flex-col font-Rubik">
-        <div className="flex items-center flex-col gap-5 border-b ">
-          <div
-            onClick={() => setStartScan(true)}
-            className="w-full border border-white/20 flex items-center  rounded-r text-white text-xl font-medium gap-3"
-          >
-            <div className="bg-cosmic size-20 flex items-center justify-center">
-              <ScanIcon sizes={60} />
-            </div>
-            <span>Escanear QR</span>
-          </div>
-
-          <div
-            className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-[#353941] z-30 flex flex-col gap-5 transition ${
-              startScan ? "opacity-100" : "opacity-0 pointer-events-none"
-            }`}
-          >
-            <button
-              onClick={() => setStartScan(false)}
-              className={`ring-2 p-2 aspect-square rounded-full text-white/90 size-12 flex items-center justify-center self-end mr-5 mt-5 ${
-                startScan ? "scale-100" : "scale-0"
-              } transition`}
-            >
-              <CloseIcon sizes={30} />
-            </button>
+        <div className="flex items-center flex-col gap-3 relative">
+          <div className="grow w-full border border-cosmic px-3 py-8 bg-cosmic/10 rounded-xl flex items-center justify-center">
             <div
-              className={`flex flex-col gap-3 items-center justify-center h-full bg-cosmic md:p-5 rounded-t-2xl ${
-                startScan ? "translate-y-0" : "translate-y-full"
-              } transition`}
+              onClick={() => setStartScan(!startScan)}
+              className="relative w-[300px] aspect-square flex items-center justify-center"
             >
-              <h1 className="text-3xl text-white uppercase font-semibold">
-                Escaneando QR
-              </h1>
-
-              {startScan && (
-                <QrReader
-                  facingMode={"environment"}
-                  delay={1000}
-                  onError={handleError}
-                  onScan={handleScan}
-                  // chooseDeviceId={()=>"environment"}
-                  style={{ width: "300px" }}
-                />
-              )}
+              <div className="">
+                {startScan ? (
+                  <QrReader
+                    facingMode={"environment"}
+                    delay={1000}
+                    onError={handleError}
+                    onScan={handleScan}
+                    style={{ width: "300px" }}
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center">
+                    <span className="text-cosmic">
+                      <QrIcon sizes={40} />
+                    </span>
+                    <span className="text-white text-xl">Escanear QR</span>
+                  </div>
+                )}
+              </div>
+              <div className="absolute border-4 border-white/80 size-12 top-0 left-0 border-r-0 border-b-0"></div>
+              <div className="absolute border-4 border-white/80 size-12 right-0 top-0 border-l-0 border-b-0"></div>
+              <div className="absolute border-4 border-white/80 size-12 bottom-0 left-0 border-t-0 border-r-0"></div>
+              <div className="absolute border-4 border-white/80 size-12 right-0 bottom-0 border-t-0 border-l-0"></div>
             </div>
           </div>
 
-          <div className="w-full flex items-center text-white/90">
+          <div className="flex items-center text-white/90 w-full">
             <span className="border grow"></span>
             <span className="px-2 text-2xl">O</span>
             <span className="border grow"></span>
           </div>
 
-          <div
+          <button
             onClick={() => setPinModal(true)}
-            className="w-full border border-white/20 flex items-center  rounded-r text-white text-xl font-medium gap-3"
+            className="bg-cosmic text-white rounded-full w-full py-3 text-xl"
           >
-            <div className="bg-cosmic size-20 flex items-center justify-center">
-              <PinCodeIcon sizes={60} />
-            </div>
-            <span>Ingresar Pin</span>
-          </div>
-
+            Ingrear Pin Manual
+          </button>
           <div
             className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-[#353941] z-30 flex flex-col gap-5 transition ${
               pinModal ? "opacity-100" : "opacity-0 pointer-events-none"
@@ -175,7 +156,6 @@ function Scan() {
             </div>
           </div>
         </div>
-
       </section>
       <PanelBottom />
     </>
@@ -183,3 +163,8 @@ function Scan() {
 }
 
 export default Scan;
+
+// rounded-tl-lg
+// rounded-tr-lg
+// rounded-bl-lg
+// rounded-br-lg

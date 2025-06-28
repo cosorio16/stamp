@@ -14,14 +14,14 @@ function Home() {
 
         <Link
           to={"/"}
-          className="h-22 flex items-center bg-white/20 text-white"
+          className="h-22 flex items-center bg-white/10 text-white"
         >
-          <div className="p-3 bg-cosmic border border-cosmic text-white aspect-square flex items-center justify-center h-22">
+          <div className="p-3 bg-cosmic text-white aspect-square flex items-center justify-center h-22">
             <span className="">
               <UserIcon sizes={40} />
             </span>
           </div>
-          <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
+          <div className="grow h-full flex flex-col justify-center pl-3">
             <h1 className="text-lg font-medium">Ingresar</h1>
             <p className="text-sm">Iniciar sesion</p>
           </div>
@@ -40,14 +40,14 @@ function Home() {
 
         <Link
           to={"/client"}
-          className="h-22 flex items-center bg-white/20 text-white"
+          className="h-22 flex items-center bg-white/10 text-white"
         >
-          <div className="p-3 bg-cosmic border border-cosmic text-white aspect-square flex items-center justify-center h-22">
+          <div className="p-3 bg-cosmic text-white aspect-square flex items-center justify-center h-22">
             <span className="">
               <QrIcon sizes={40} />
             </span>
           </div>
-          <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
+          <div className="grow h-full flex flex-col justify-center pl-3">
             <h1 className="text-lg font-medium">Soy Cliente</h1>
             <p className="text-sm">Genera tu QR gratis</p>
           </div>
@@ -58,14 +58,14 @@ function Home() {
 
         <Link
           to={"/register"}
-          className="h-22 flex items-center bg-white/20 text-white"
+          className="h-22 flex items-center bg-white/10 text-white"
         >
-          <div className="p-3 bg-cosmic border border-cosmic text-white aspect-square flex items-center justify-center h-22">
+          <div className="p-3 bg-cosmic text-white aspect-square flex items-center justify-center h-22">
             <span className="">
               <ScanIcon sizes={40} />
             </span>
           </div>
-          <div className="grow h-full flex flex-col justify-center border-white/30 border pl-3 border-l-0">
+          <div className="grow h-full flex flex-col justify-center pl-3">
             <h1 className="text-lg font-medium">Soy Dueño</h1>
             <p className="text-sm">Registrate en segundos</p>
           </div>

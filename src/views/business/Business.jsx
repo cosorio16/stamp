@@ -9,13 +9,13 @@ function Business() {
   return (
     <>
       <Header />
-      <div className="flex flex-col justify-center gap-10 py-5 pb-32">
+      <div className="flex flex-col justify-center gap-6 py-5 pb-32">
         <div className="flex items-center w-full flex-col">
           <span className="rounded-full p-4 bg-white flex items-center justify-center text-carbon/80">
             <UserIcon sizes={40} />
           </span>
         </div>
-        <div className="flex flex-col px-6 border-y py-8 border-white/10 gap-8 text-white relative">
+        <div className="flex flex-col px-6 border-y py-8 border-white/10 gap-5 text-white relative">
           <button className="self-end font-bold absolute right-3 top-3">
             Editar
           </button>
