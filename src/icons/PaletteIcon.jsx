@@ -4,7 +4,7 @@ function PaletteIcon({ sizes }) {
       <g
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
+        strokeLinecap="round"
         stroke-linejoin="round"
         stroke-width="2"
       >

@@ -42,22 +42,20 @@ function Users() {
           name=""
           id=""
           placeholder="Buscar"
-          className="focus:outline-none ring-2 ring-white/30 focus:ring-frost text-white placeholder:text-white/80 py-2 px-5 rounded transition capitalize w-full"
+          className="focus:outline-none ring-2 ring-white/30 focus:ring-frost text-white placeholder:text-white/80 py-3 px-5 rounded transition capitalize w-full"
         />
 
         <div className="flex flex-col gap-2 overflow-y-scroll max-h-120 usersContainer pb-10">
           {users.map((u, i) => (
             <div
               key={i}
-              className="flex border p-4 items-center gap-3 bg-white/10 rounded border-white/10 text-white"
+              className="flex border p-4 items-center gap-3 bg-white/10 rounded border-white/20 text-white"
             >
               <span className="bg-cosmic text-white text-2xl uppercase aspect-square flex items-center justify-center rounded-full w-12">
                 {u.name[0]}
               </span>
               <div className="flex flex-col gap-1 grow truncate">
-                <span className="text-xl">
-                  {u.name}
-                </span>
+                <span className="text-xl">{u.name}</span>
                 <div className="flex items-center justify-between">
                   <span>Estampas:</span>
                   <span>
@@ -67,7 +65,7 @@ function Users() {
                 <div className="flex items-center justify-between">
                   Ultima Visita:
                   <span>{u.lastVisit}</span>
-              </div>
+                </div>
               </div>
             </div>
           ))}

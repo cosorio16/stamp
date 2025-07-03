@@ -1,16 +1,11 @@
 import { QRCodeSVG } from "qrcode.react";
 
-function Ticket() {
-  const qrData = {
-    user: "Carlos",
-    user2: "Oso",
-    date: Date.now(),
-  };
+function Ticket({ userData }) {
   return (
     <div className="flex flex-col bg-cosmic rounded-t border border-white/20 shadow max-w-72 w-full">
       <div className="flex items-center justify-center py-16">
         <QRCodeSVG
-          value={JSON.stringify(qrData)}
+          value={JSON.stringify(userData)}
           size={200}
           level="M"
           fgColor="#fff"

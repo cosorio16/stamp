@@ -13,39 +13,31 @@ import {
 const data = [
   {
     name: "A",
-    value: 5
-   
+    value: 0,
   },
   {
     name: "B",
-    value: 1
-    
+    value: 1,
   },
   {
     name: "C",
-    value: 5
-    
+    value: 3,
   },
   {
     name: "D",
-    value: 0
-  
+    value: 5,
   },
   {
     name: "E",
-    value: 6
-   
+    value: 6,
   },
   {
     name: "F",
-    value: 2
-   
- 
+    value: 10,
   },
   {
     name: "G",
-    value: 1
-   
+    value: 12,
   },
 ];
 
@@ -73,7 +65,7 @@ export default class ChartLine extends PureComponent {
           <Line
             type="monotone"
             dataKey="value"
-            stroke="#8884d8"
+            stroke="#639cd9"
             activeDot={false}
             dot={false}
           />

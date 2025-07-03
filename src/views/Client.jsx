@@ -4,6 +4,15 @@ import Ticket from "../components/Ticket";
 import Stamp from "../components/Stamp";
 
 function Client() {
+  const qrData = {
+    id: "",
+    user: "",
+    name: "",
+    email: "",
+    phone: "",
+    code: "",
+  };
+
   return (
     <>
       <Header />

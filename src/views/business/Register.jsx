@@ -8,7 +8,7 @@ function Register() {
   const [kindOfWork, setKindOfWork] = useState("");
   const [direction, setDirection] = useState("");
   const [steps, setSteps] = useState(2);
-  const [color, setColor] = useState("");
+  const [reward, setReward] = useState("");
   const [colorSelected, setColorSelected] = useState(0);
 
   const colors = [
@@ -33,25 +33,29 @@ function Register() {
           Configure su Estampa
         </h1>
 
-        <form action="" className="flex flex-col w-full gap-2.5">
+        <div className="flex flex-col w-full gap-2.5">
           <input
             className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition capitalize"
             type="text"
             placeholder="Nombre del Negocio"
+            value={businessName}
+            onChange={(e) => setBusinessName(e.target.value)}
           />
 
-          <select
-            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition"
-            name=""
-            id=""
-          >
-            <option value="">Rubro</option>
-          </select>
+          <input
+            className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition capitalize"
+            type="text"
+            placeholder="Rubro"
+            value={kindOfWork}
+            onChange={(e) => setKindOfWork(e.target.value)}
+          />
 
           <input
             className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition"
             type="text"
             placeholder="Direccion"
+            value={direction}
+            onChange={(e) => setDirection(e.target.value)}
           />
           <div className="flex border flex-col py-2.5 px-5  border-white/30 rounded transition text-white/80 ring ring-transparent focus-within:ring-frost">
             <span>Cantidad de pasos: {steps}</span>
@@ -67,12 +71,13 @@ function Register() {
               step={1}
               value={steps}
             />
-            <div></div>
           </div>
           <input
             className="border border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition"
             type="text"
             placeholder="Recompensa"
+            value={reward}
+            onChange={(e) => setReward(e.target.value)}
           />
 
           <div className="flex border flex-col py-2.5 px-5 gap-2 border-white/30 rounded transition text-white/80 ring ring-transparent focus-within:ring-frost">
@@ -93,10 +98,29 @@ function Register() {
             </div>
           </div>
 
-          <Link to={'/scan'} className="bg-cosmic text-white self-center w-fit px-10 py-2.5 font-Rubik text-xl rounded active:scale-90 transition">
+          <button
+            onClick={() => {
+              console.log({
+                businessName,
+                kindOfWork,
+                direction,
+                steps,
+                reward,
+                color: colors[colorSelected],
+              });
+            }}
+            className={`bg-cosmic text-white self-center w-72 text-center px-10 py-2.5 font-Rubik text-xl rounded active:scale-90 transition ${
+              businessName.trim() != "" &&
+              direction.trim() != "" &&
+              kindOfWork.trim() != "" &&
+              reward.trim() != ""
+                ? "scale-100"
+                : "scale-0 pointer-events-none"
+            }`}
+          >
             Crear Estampa
-          </Link>
-        </form>
+          </button>
+        </div>
       </section>
     </>
   );
