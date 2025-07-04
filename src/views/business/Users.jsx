@@ -9,27 +9,7 @@ function Users() {
       stampRewardQuantity: "10",
       lastVisit: "24/Junio",
       rewards: "",
-    },
-    {
-      name: "Carlos Osorio",
-      stamps: "1",
-      stampRewardQuantity: "10",
-      lastVisit: "24/Junio",
-      rewards: "",
-    },
-    {
-      name: "Carlos Osorio",
-      stamps: "1",
-      stampRewardQuantity: "10",
-      lastVisit: "24/Junio",
-      rewards: "",
-    },
-    {
-      name: "Carlos Osorio",
-      stamps: "1",
-      stampRewardQuantity: "10",
-      lastVisit: "24/Junio",
-      rewards: "",
+      id: "",
     },
   ];
 

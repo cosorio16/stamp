@@ -1,9 +1,11 @@
-import { use, useState } from "react";
+import { Link, useNavigate } from "react-router";
+import { useState } from "react";
 import Header from "../../components/Header";
 import TicketIcon from "../../icons/TicketIcon";
-import { Link } from "react-router";
 
 function Register() {
+  const navigate = useNavigate();
+  
   const [businessName, setBusinessName] = useState("");
   const [kindOfWork, setKindOfWork] = useState("");
   const [direction, setDirection] = useState("");
@@ -39,6 +41,7 @@ function Register() {
             type="text"
             placeholder="Nombre del Negocio"
             value={businessName}
+            maxLength={25}
             onChange={(e) => setBusinessName(e.target.value)}
           />
 
@@ -77,6 +80,7 @@ function Register() {
             type="text"
             placeholder="Recompensa"
             value={reward}
+            maxLength={40}
             onChange={(e) => setReward(e.target.value)}
           />
 

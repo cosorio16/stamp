@@ -4,8 +4,11 @@ import UserIcon from "../../icons/UserIcon";
 import MailIcon from "../../icons/MailIcon";
 import PhoneIcon from "../../icons/PhoneIcon";
 import LocationIcon from "../../icons/LocationIcon";
+import { useState } from "react";
 
 function Business() {
+  const [editing, setEditing] = useState(false);
+
   return (
     <>
       <Header />

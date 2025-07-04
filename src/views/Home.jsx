@@ -13,7 +13,7 @@ function Home() {
         <h1 className="text-2xl text-white">Tengo Cuenta</h1>
 
         <Link
-          to={"/"}
+          to={"/login"}
           className="h-22 flex items-center bg-white/10 text-white"
         >
           <div className="p-3 bg-cosmic text-white aspect-square flex items-center justify-center h-22">

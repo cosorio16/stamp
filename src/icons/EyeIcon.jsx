@@ -5,7 +5,7 @@ function EyeIcon({ sizes }) {
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
         stroke-width="1.5"
       >
         <path d="M3 13c3.6-8 14.4-8 18 0" />
