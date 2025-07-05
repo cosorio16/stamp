@@ -1,5 +1,7 @@
 import Header from "../../components/Header";
 import PanelBottom from "../../components/PanelBottom";
+import ShareIcon from "../../icons/ShareIcon";
+import QrIcon from "../../icons/QrIcon";
 
 function Users() {
   const users = [
@@ -16,7 +18,17 @@ function Users() {
   return (
     <>
       <Header />
-      <section className="flex flex-col gap-5 px-3 py-5 font-Rubik">
+      <section className="flex flex-col gap-5 px-3 py-5 font-Rubik text-white">
+        <div className="grid grid-cols-2 gap-1.5">
+          <button className="flex items-center justify-center gap-1 border py-2 rounded border-cosmic bg-cosmic/10 active:scale-90 transition">
+            <ShareIcon sizes={25} />
+            Compartir Enlace
+          </button>
+          <button className="flex items-center justify-center gap-1 border py-2 rounded border-cosmic bg-cosmic/10 active:scale-90 transition">
+            <QrIcon sizes={25} />
+            Generar QR
+          </button>
+        </div>
         <input
           type="text"
           name=""

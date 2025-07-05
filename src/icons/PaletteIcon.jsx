@@ -6,7 +6,7 @@ function PaletteIcon({ sizes }) {
         stroke="currentColor"
         strokeLinecap="round"
         strokeLinejoin="round"
-        stroke-width="2"
+        strokeWidth="2"
       >
         <path d="M12 22a1 1 0 0 1 0-20a10 9 0 0 1 10 9a5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z" />
         <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />

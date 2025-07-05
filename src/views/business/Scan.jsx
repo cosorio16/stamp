@@ -9,6 +9,9 @@ import QrIcon from "../../icons/QrIcon";
 import CloseIcon from "../../icons/CloseIcon";
 
 function Scan() {
+  const token = localStorage.getItem("businessToken");
+  const businessData = localStorage.getItem("businessData");
+
   const [pinCode, setPinCode] = useState(Array(8).fill(""));
   const [startScan, setStartScan] = useState(false);
   const [pinModal, setPinModal] = useState(false);
@@ -21,7 +24,6 @@ function Scan() {
     console.log(`loaded data data`, scanData);
     if (scanData && scanData !== "") {
       console.log(`loaded >>>`, scanData);
-      setData(scanData);
       setStartScan(false);
       setLoadingScan(false);
     }
@@ -56,6 +58,8 @@ function Scan() {
       e.preventDefault();
     }
   };
+
+  console.log(token, JSON.parse(businessData));
 
   return (
     <>
@@ -136,7 +140,7 @@ function Scan() {
                       className="border-2 rounded border-white/60 w-full justify-items-center items-center aspect-square text-center focus:outline-none p-1 focus:border-white uppercase font-IBM font-bold transition"
                       onKeyDown={(e) => handleChange(e, i)}
                       maxLength={1}
-                      // onKeyDown={(e) => handleDelete(e, i)}s
+                      onChange={() => {}}
                     />
                     {i == 3 && <span className="text-4xl text-center">-</span>}
                   </React.Fragment>

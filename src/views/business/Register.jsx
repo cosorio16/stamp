@@ -1,11 +1,26 @@
-import { Link, useNavigate } from "react-router";
-import { useState } from "react";
+import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import TicketIcon from "../../icons/TicketIcon";
+import generateId from "../../utils/generateId";
+import {
+  doc,
+  setDoc,
+  getDoc,
+  updateDoc,
+  collection,
+  getDocs,
+} from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 
 function Register() {
+  let token = localStorage.getItem("businessToken");
+  let businessData = localStorage.getItem("businessData");
+
+  const [data, setData] = useState([]);
+
   const navigate = useNavigate();
-  
+
   const [businessName, setBusinessName] = useState("");
   const [kindOfWork, setKindOfWork] = useState("");
   const [direction, setDirection] = useState("");
@@ -23,6 +38,39 @@ function Register() {
     "#fcc800",
     "#ff2056",
   ];
+
+  const handleSubmitData = async () => {
+    const collectionRef = collection(db, "business");
+    const snapshot = await getDocs(collectionRef);
+    const docs = snapshot.docs.map((doc) => doc.id);
+
+    token = generateId();
+    while (docs.includes(token)) {
+      token = generateId();
+    }
+
+    localStorage.setItem("businessToken", token);
+
+    const businessData = {
+      id: token,
+      stamp: {
+        steps,
+        reward,
+        color: colors[colorSelected],
+      },
+      created: Date.now(),
+      clients: [],
+      name: businessName,
+      kindOfWork,
+      direction,
+      mail: "",
+      phone: "",
+      link: "",
+    };
+    await setDoc(doc(db, "business", token), businessData);
+    localStorage.setItem("businessData", JSON.stringify(businessData));
+    navigate("/scan");
+  };
 
   return (
     <>
@@ -103,16 +151,7 @@ function Register() {
           </div>
 
           <button
-            onClick={() => {
-              console.log({
-                businessName,
-                kindOfWork,
-                direction,
-                steps,
-                reward,
-                color: colors[colorSelected],
-              });
-            }}
+            onClick={() => handleSubmitData()}
             className={`bg-cosmic text-white self-center w-72 text-center px-10 py-2.5 font-Rubik text-xl rounded active:scale-90 transition ${
               businessName.trim() != "" &&
               direction.trim() != "" &&

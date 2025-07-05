@@ -27,37 +27,39 @@ function Stamp({ name, gift, bgColor, data }) {
         <span className="size-6 bg-[#353941] rounded-full absolute left-1/2 -translate-x-1/2 -bottom-3"></span>
         <div className="h-full grid grid-cols-5 justify-items-center items-center">
           {data &&
-            data.map((d, i) => (
+            data?.dates?.map((d, i) => (
               <div
                 key={i}
                 style={{
                   background: `linear-gradient(145deg, ${colors.thirdGradientColor}, ${colors.secondGradientColor})`,
                   boxShadow: `1.5px 1.5px 0px ${colors.darkColor}, -1.5px -1.5px 0px ${colors.lightColor}`,
                 }}
-                className={`size-16 aspect-square rounded-full flex flex-col items-center justify-center text-white`}
+                className="size-16 aspect-square rounded-full flex flex-col items-center justify-center text-white"
               >
-                {i == data.length - 1 ? (
-                  <>
-                    {data[data.length - 1] ? (
-                      <span>
-                        <RedeemedIcon sizes={40} />
-                      </span>
-                    ) : (
-                      <span>
-                        <GiftIcon sizes={40} />
-                      </span>
-                    )}
-                  </>
-                ) : (
-                  <>
-                    <div className="flex flex-col items-center uppercase">
-                      <span>{d[0]}</span>
-                      <span>{d[1]}</span>
-                    </div>
-                  </>
-                )}
+                <div className="flex flex-col items-center uppercase">
+                  <span>{d[0]}</span>
+                  <span>{d[1]}</span>
+                </div>
               </div>
             ))}
+
+          <div
+            style={{
+              background: `linear-gradient(145deg, ${colors.thirdGradientColor}, ${colors.secondGradientColor})`,
+              boxShadow: `1.5px 1.5px 0px ${colors.darkColor}, -1.5px -1.5px 0px ${colors.lightColor}`,
+            }}
+            className="size-16 aspect-square rounded-full flex flex-col items-center justify-center text-white"
+          >
+            {data.redeemed ? (
+              <span>
+                <RedeemedIcon sizes={40} />
+              </span>
+            ) : (
+              <span>
+                <GiftIcon sizes={40} />
+              </span>
+            )}
+          </div>
         </div>
       </div>
 

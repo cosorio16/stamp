@@ -13,15 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              <Link to={"/home"}>Ingresar</Link>
-            </div>
-          }
-        />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/client" element={<Client />} />
         <Route path="/stamps" element={<Stamps />} />
         <Route path="/profile" element={<Profile />} />
