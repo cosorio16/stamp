@@ -6,9 +6,9 @@ function Ticket({ code }) {
     <div className="flex flex-col bg-cosmic rounded-t border border-white/20 shadow max-w-72 w-full">
       <div className="flex items-center justify-center py-16">
         <QRCodeSVG
-          value={JSON.stringify(code)}
+          value={code}
           size={200}
-          level="M"
+          level="L"
           fgColor="#fff"
           bgColor="#5454c5"
           marginSize={1}
@@ -25,8 +25,8 @@ function Ticket({ code }) {
           </span>
         )}
 
-        <span className="size-6 bg-[#353941] rounded-full absolute -left-3 -top-3"></span>
-        <span className="size-6 bg-[#353941] rounded-full absolute -right-3 -top-3"></span>
+        <span className="size-6 bg-night rounded-full absolute -left-3 -top-3"></span>
+        <span className="size-6 bg-night rounded-full absolute -right-3 -top-3"></span>
       </div>
     </div>
   );

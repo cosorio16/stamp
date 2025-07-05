@@ -1,29 +1,36 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import QrReader from "react-qr-reader";
 
 import Header from "../../components/Header";
 import PanelBottom from "../../components/PanelBottom";
+import Stamp from "../../components/Stamp";
 import PinCodeIcon from "../../icons/PinCodeIcon";
 import ScanIcon from "../../icons/ScanIcon";
 import QrIcon from "../../icons/QrIcon";
 import CloseIcon from "../../icons/CloseIcon";
+import { db } from "../../firebase/firebase";
+import { doc, getDoc } from "firebase/firestore";
 
 function Scan() {
+  const inputRefs = useRef([]);
+
   const token = localStorage.getItem("businessToken");
-  const businessData = localStorage.getItem("businessData");
+  const businessData = JSON.parse(localStorage.getItem("businessData"));
 
   const [pinCode, setPinCode] = useState(Array(8).fill(""));
   const [startScan, setStartScan] = useState(false);
   const [pinModal, setPinModal] = useState(false);
+  const [userData, setUserData] = useState(false);
   const [loadingScan, setLoadingScan] = useState(false);
-  const [data, setData] = useState("");
-  const inputRefs = useRef([]);
+  const [qrData, setQrData] = useState("");
+  const [clientData, setClientData] = useState(null);
 
   const handleScan = async (scanData) => {
     setLoadingScan(true);
-    console.log(`loaded data data`, scanData);
+    // console.log(`loaded data data`, scanData);
     if (scanData && scanData !== "") {
-      console.log(`loaded >>>`, scanData);
+      // console.log(`loaded >>>`, scanData);
+      setQrData(scanData);
       setStartScan(false);
       setLoadingScan(false);
     }
@@ -59,7 +66,35 @@ function Scan() {
     }
   };
 
-  console.log(token, JSON.parse(businessData));
+  const handleSubmitData = async (id) => {
+    try {
+      const userRef = doc(db, "clients", id);
+      const userDoc = await getDoc(userRef);
+
+      if (userDoc.exists()) {
+        console.log("Datos encontrados:", userDoc.data());
+        setClientData(userDoc.data());
+        setUserData(true);
+      } else {
+        console.log("Documento no encontrado para id:", id);
+        setClientData(null);
+        setUserData(false);
+      }
+    } catch (error) {
+      console.error("Error al obtener datos de Firestore:", error);
+      setClientData(null);
+      setUserData(false);
+    }
+  };
+
+  useEffect(() => {
+    if (qrData) {
+      handleSubmitData(qrData);
+    }
+    console.log(qrData);
+  }, [qrData]);
+
+  console.log(clientData);
 
   return (
     <>
@@ -109,8 +144,10 @@ function Scan() {
           >
             Ingrear Pin Manual
           </button>
+
+          {/* pin modal */}
           <div
-            className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-[#353941] z-30 flex flex-col gap-5 transition ${
+            className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-night z-30 flex flex-col gap-5 transition ${
               pinModal ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
@@ -156,6 +193,48 @@ function Scan() {
                 }`}
               >
                 Continuar
+              </button>
+            </div>
+          </div>
+
+          {/* data scanned */}
+          <div
+            className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-night z-30 flex flex-col gap-5 transition ${
+              userData ? "opacity-100" : "opacity-0 pointer-events-none"
+            }`}
+          >
+            <button
+              onClick={() => setUserData(false)}
+              className={`ring-2 p-2 aspect-square rounded-full text-white/90 size-12 flex items-center justify-center self-end mr-5 mt-5 ${
+                userData ? "scale-100" : "scale-0"
+              } transition`}
+            >
+              <CloseIcon sizes={30} />
+            </button>
+
+            <div
+              className={`flex flex-col gap-6 items-center py-10 h-full md:p-5 px-1 ${
+                userData ? "translate-y-0" : "translate-y-full"
+              } transition`}
+            >
+              <input
+                type="text"
+                value={clientData?.name !== "" ? clientData?.name : "Cliente"}
+                className="border-b text-center border-white/30 focus:outline-none ring ring-transparent focus:ring-frost text-white placeholder:text-white/80 py-2.5 px-5 rounded transition w-full text-3xl font-black"
+              />
+
+              <div className="w-full flex items-center justify-center">
+                <Stamp
+                  bgColor={businessData.stamp.color}
+                  steps={businessData.stamp.steps}
+                  forced
+                />
+              </div>
+              <button
+                onClick={() => setPinModal(false)}
+                className={`bg-cosmic px-12 py-3 rounded text-white text-xl active:scale-90 transition mt-8`}
+              >
+                Agregar Visita
               </button>
             </div>
           </div>

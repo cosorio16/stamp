@@ -6,7 +6,7 @@ import DashboardIcon from "../icons/DashboardIcon";
 
 function NavBottom() {
   return (
-    <div className="fixed bottom-0 max-w-xl md:left-1/2 md:-translate-x-1/2 left-0 h-16 bg-carbon text-white w-full">
+    <div className="fixed bottom-0 max-w-xl md:left-1/2 md:-translate-x-1/2 left-0 h-16 bg-night text-white w-full">
       <nav className="flex items-center justify-around gap-5 h-full">
         <NavLink
           className={({ isActive }) =>

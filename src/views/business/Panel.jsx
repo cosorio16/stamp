@@ -50,7 +50,7 @@ function Panel() {
         </div>
 
         <div
-          className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-[#353941]/95 z-30 flex flex-col gap-5 transition ${
+          className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-night/95 z-30 flex flex-col gap-5 transition ${
             showCard ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
         >
