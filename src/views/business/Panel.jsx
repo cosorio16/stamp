@@ -68,8 +68,9 @@ function Panel() {
             } transition p-2`}
           >
             <Stamp
+              steps={10}
               bgColor={"#ff6467"}
-              data={[
+              dates={[
                 ["", ""],
                 ["", ""],
                 ["", ""],
@@ -79,7 +80,6 @@ function Panel() {
                 ["", ""],
                 ["", ""],
                 ["", ""],
-                true,
               ]}
               name={"Osorio Frontend"}
               gift={"Free Landing Page"}

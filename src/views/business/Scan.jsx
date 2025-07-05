@@ -9,7 +9,7 @@ import ScanIcon from "../../icons/ScanIcon";
 import QrIcon from "../../icons/QrIcon";
 import CloseIcon from "../../icons/CloseIcon";
 import { db } from "../../firebase/firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 function Scan() {
   const inputRefs = useRef([]);
@@ -20,16 +20,15 @@ function Scan() {
   const [pinCode, setPinCode] = useState(Array(8).fill(""));
   const [startScan, setStartScan] = useState(false);
   const [pinModal, setPinModal] = useState(false);
-  const [userData, setUserData] = useState(false);
+
   const [loadingScan, setLoadingScan] = useState(false);
   const [qrData, setQrData] = useState("");
   const [clientData, setClientData] = useState(null);
 
   const handleScan = async (scanData) => {
     setLoadingScan(true);
-    // console.log(`loaded data data`, scanData);
     if (scanData && scanData !== "") {
-      // console.log(`loaded >>>`, scanData);
+      handleGetUserData(scanData);
       setQrData(scanData);
       setStartScan(false);
       setLoadingScan(false);
@@ -66,35 +65,101 @@ function Scan() {
     }
   };
 
-  const handleSubmitData = async (id) => {
-    try {
-      const userRef = doc(db, "clients", id);
-      const userDoc = await getDoc(userRef);
+  const handleGetUserData = async (id) => {
+    const userRef = doc(db, "clients", id);
+    const userDoc = await getDoc(userRef);
 
-      if (userDoc.exists()) {
-        console.log("Datos encontrados:", userDoc.data());
-        setClientData(userDoc.data());
-        setUserData(true);
-      } else {
-        console.log("Documento no encontrado para id:", id);
-        setClientData(null);
-        setUserData(false);
-      }
-    } catch (error) {
-      console.error("Error al obtener datos de Firestore:", error);
-      setClientData(null);
-      setUserData(false);
+    if (userDoc.exists()) {
+      setClientData(userDoc.data());
     }
   };
 
-  useEffect(() => {
-    if (qrData) {
-      handleSubmitData(qrData);
+  const confirmVisit = async () => {
+    const userRef = doc(db, "clients", clientData.code);
+    const businessRef = doc(db, "business", token);
+
+    try {
+      const userDoc = await getDoc(userRef);
+      if (!userDoc.exists()) return;
+
+      const businessDoc = await getDoc(businessRef);
+      if (!businessDoc.exists()) return;
+
+      const now = Date.now();
+
+      const currentStamps = userDoc.data().stamps || [];
+      const stampExists = currentStamps.some(
+        (stamp) => stamp.idStamp === token
+      );
+
+      let newStamps;
+
+      if (stampExists) {
+        newStamps = currentStamps.map((stamp) => {
+          if (stamp.idStamp === token) {
+            return {
+              ...stamp,
+              dates: [...(stamp.dates || []), now],
+            };
+          }
+          return stamp;
+        });
+      } else {
+        const newStamp = {
+          idStamp: token,
+          color: businessData.stamp.color,
+          dates: [now],
+          name: businessData.name,
+          gift: businessData.stamp.reward,
+          steps: businessData.stamp.color,
+          redeemed: false,
+          visits: [],
+        };
+        newStamps = [...currentStamps, newStamp];
+      }
+
+      await updateDoc(userRef, { stamps: newStamps });
+
+      const currentClients = businessDoc.data().clients || [];
+      const clientExists = currentClients.some((c) => c.id === clientData.code);
+
+      const clientPayload = {
+        id: clientData.code,
+        created: now,
+        direction: clientData.direction || "",
+        kindOfWork: clientData.kindOfWork || "",
+        link: clientData.link || "",
+        mail: clientData.mail || "",
+        name: clientData.name || "",
+        phone: clientData.phone || "",
+        stamp: {
+          color: businessData.stamp.color,
+          reward: businessData.stamp.reward,
+          steps: businessData.stamp.steps,
+        },
+      };
+
+      let updatedClients;
+
+      if (clientExists) {
+        updatedClients = currentClients.map((client) =>
+          client.id === clientData.code
+            ? { ...client, ...clientPayload }
+            : client
+        );
+      } else {
+        updatedClients = [...currentClients, clientPayload];
+      }
+
+      // Actualizar clientes en el negocio
+      await updateDoc(businessRef, { clients: updatedClients });
+    } catch (error) {
+      console.error("Error confirming visit:", error);
     }
-    console.log(qrData);
-  }, [qrData]);
+  };
 
   console.log(clientData);
+  console.log(businessData);
 
   return (
     <>
@@ -200,13 +265,13 @@ function Scan() {
           {/* data scanned */}
           <div
             className={`fixed inset-0 max-w-2xl w-full md:left-1/2 md:-translate-x-1/2 bg-night z-30 flex flex-col gap-5 transition ${
-              userData ? "opacity-100" : "opacity-0 pointer-events-none"
+              qrData != "" ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
             <button
-              onClick={() => setUserData(false)}
+              onClick={() => setQrData("")}
               className={`ring-2 p-2 aspect-square rounded-full text-white/90 size-12 flex items-center justify-center self-end mr-5 mt-5 ${
-                userData ? "scale-100" : "scale-0"
+                qrData != "" ? "scale-100" : "scale-0"
               } transition`}
             >
               <CloseIcon sizes={30} />
@@ -214,7 +279,7 @@ function Scan() {
 
             <div
               className={`flex flex-col gap-6 items-center py-10 h-full md:p-5 px-1 ${
-                userData ? "translate-y-0" : "translate-y-full"
+                qrData != "" ? "translate-y-0" : "translate-y-full"
               } transition`}
             >
               <input
@@ -231,7 +296,7 @@ function Scan() {
                 />
               </div>
               <button
-                onClick={() => setPinModal(false)}
+                onClick={() => confirmVisit()}
                 className={`bg-cosmic px-12 py-3 rounded text-white text-xl active:scale-90 transition mt-8`}
               >
                 Agregar Visita

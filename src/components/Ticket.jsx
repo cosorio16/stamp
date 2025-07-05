@@ -3,18 +3,18 @@ import React from "react";
 
 function Ticket({ code }) {
   return (
-    <div className="flex flex-col bg-cosmic rounded-t border border-white/20 shadow max-w-72 w-full">
+    <div className="flex flex-col bg-white rounded-t border border-white/20 shadow max-w-72 w-full">
       <div className="flex items-center justify-center py-16">
         <QRCodeSVG
           value={code}
           size={200}
           level="L"
-          fgColor="#fff"
-          bgColor="#5454c5"
+          fgColor="#333"
+          bgColor="#fff"
           marginSize={1}
         />
       </div>
-      <div className="relative flex items-center justify-center font-IBM text-2xl font-medium text-white py-2 border-t-2 border-dashed border-carbon/50 uppercase">
+      <div className="relative flex items-center justify-center font-IBM text-2xl font-medium text-carbon py-2 border-t-2 border-dashed border-carbon/50 uppercase">
         {code && (
           <span>
             {code.split("").map((c, i) => (

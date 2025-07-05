@@ -2,14 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import NavBottom from "../components/NavBottom";
 import Ticket from "../components/Ticket";
-import {
-  doc,
-  setDoc,
-  getDoc,
-  updateDoc,
-  collection,
-  getDocs,
-} from "firebase/firestore";
+import { doc, setDoc, collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import generateId from "../utils/generateId";
 
@@ -43,15 +36,7 @@ function Client() {
           email: "",
           phone: "",
           code: token,
-          stamps: [
-            {
-              idStamp: "",
-              color: "",
-              dates: [],
-              name: "",
-              gift: "",
-            },
-          ],
+          stamps: [],
           created: Date.now(),
         };
         await setDoc(doc(db, "clients", token), clientData);

@@ -43,6 +43,7 @@ function Stamps() {
             data={dataStyles.dates}
             gift={dataStyles.gift}
             name={dataStyles.name}
+            steps={10}
           />
         ) : (
           <div className="flex flex-col gap-5 items-center">
