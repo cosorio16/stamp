@@ -10,6 +10,7 @@ function Stamp({ name, gift, bgColor, data, forced, steps }) {
 
   const colors = neumorphism.generateNeumorphismColors(`#${bgColor}`);
 
+
   return (
     <div
       style={{
@@ -48,10 +49,9 @@ function Stamp({ name, gift, bgColor, data, forced, steps }) {
               }}
               className="size-16 aspect-square rounded-full flex flex-col items-center justify-center text-white"
             >
-              {data && (
+              {data && data[i] && (
                 <div className="flex flex-col items-center uppercase">
-                  <span>{data.dates[i][0]}</span>
-                  <span>{data.dates[i][0]}</span>
+                  <RedeemedIcon sizes={40} />
                 </div>
               )}
             </div>

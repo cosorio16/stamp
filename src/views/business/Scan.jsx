@@ -111,9 +111,8 @@ function Scan() {
           dates: [now],
           name: businessData.name,
           gift: businessData.stamp.reward,
-          steps: businessData.stamp.color,
+          steps: businessData.stamp.steps,
           redeemed: false,
-          visits: [],
         };
         newStamps = [...currentStamps, newStamp];
       }
